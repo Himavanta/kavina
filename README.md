@@ -1,5 +1,7 @@
 # kavina
 
+[![npm version](https://img.shields.io/npm/v/kavina)](https://www.npmjs.com/package/kavina)
+
 基于 Vue 3 的低代码框架 —— 可视化设计器与组件化渲染器。
 
 A Vue 3 low-code framework — visual designer and component renderer.
