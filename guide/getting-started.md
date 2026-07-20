@@ -1,22 +1,12 @@
-# kavina
+# 快速开始
 
-[![npm version](https://img.shields.io/npm/v/kavina)](https://www.npmjs.com/package/kavina)
-
-Vue 3 低代码框架 — 可视化设计器与组件化渲染引擎。
-
-A Vue 3 low-code framework — visual designer & component rendering engine.
-
-## 文档 / Docs
-
-[kavina.unsun.cc](https://kavina.unsun.cc)
-
-## 安装 / Install
+## 安装
 
 ```bash
 npm install kavina
 ```
 
-## 使用 / Usage
+## 第一个设计器
 
 ```vue
 <script setup>
@@ -33,9 +23,9 @@ const widgets = [example]
 </template>
 ```
 
-`Display` 用于渲染模式，API 相同：
+`example` 包含一组基础 widget（text、array、group 等），方便快速体验。
 
-`Display` for render mode, same API:
+## 切换到渲染模式
 
 ```vue
 <script setup>
@@ -46,3 +36,16 @@ import { Display } from 'kavina/display'
   <Display v-model:views="views" :widgets="widgets" />
 </template>
 ```
+
+## 暗色模式与主题
+
+```vue
+<Design
+  v-model:views="views"
+  v-model:dark="isDark"
+  v-model:theme="themeColor"
+  :widgets="widgets"
+/>
+```
+
+`dark` 为布尔值，`theme` 为 hex 颜色字符串。Design 和 Display 属性完全一致。
