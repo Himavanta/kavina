@@ -14,6 +14,7 @@ export default defineConfig({
 
     nav: [
       { text: "指南", link: "/guide/introduction" },
+      { text: "开发", link: "/dev/widget-dev" },
       { text: "拓展", link: "/packages" },
       { text: "在线体验", link: "/demo" },
       { text: "API", link: "/api/design" },
@@ -21,21 +22,33 @@ export default defineConfig({
 
     sidebar: {
       "/guide/": [
+        { text: "框架概述", link: "/guide/introduction" },
+        { text: "快速开始", link: "/guide/getting-started" },
+      ],
+      "/dev/": [
         {
-          text: "入门",
+          text: "部件",
           items: [
-            { text: "框架概述", link: "/guide/introduction" },
-            { text: "快速开始", link: "/guide/getting-started" },
+            { text: "部件开发", link: "/dev/widget-dev" },
+            { text: "定义参考", link: "/dev/widget-definition" },
           ],
         },
         {
-          text: "深入",
+          text: "核心",
           items: [
-            { text: "部件开发", link: "/guide/widget-dev" },
-            { text: "节点数据", link: "/guide/node" },
-            { text: "槽位嵌套", link: "/guide/slots" },
-            { text: "上下文", link: "/guide/context" },
-            { text: "渲染模式", link: "/guide/render-mode" },
+            { text: "节点数据", link: "/dev/node" },
+            { text: "槽位嵌套", link: "/dev/slots" },
+            { text: "上下文", link: "/dev/context" },
+            { text: "渲染模式", link: "/dev/render-mode" },
+          ],
+        },
+        {
+          text: "进阶",
+          items: [
+            { text: "主题系统", link: "/dev/theme" },
+            { text: "表达式引擎", link: "/dev/expression" },
+            { text: "插件开发", link: "/dev/plugins" },
+            { text: "国际化", link: "/dev/i18n" },
           ],
         },
       ],
