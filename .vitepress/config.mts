@@ -6,7 +6,6 @@ export default defineConfig({
   lang: "zh-CN",
   head: [["link", { rel: "icon", href: "/favicon.svg" }]],
   sitemap: { hostname: "https://kavina.unsun.cc" },
-  lastUpdated: true,
   ignoreDeadLinks: true,
 
   themeConfig: {
@@ -17,7 +16,7 @@ export default defineConfig({
       { text: "指南", link: "/guide/introduction" },
       { text: "开发", link: "/dev/widget-dev" },
       { text: "拓展", link: "/packages" },
-      { text: "在线体验", link: "/demo" },
+      { text: "演示", link: "https://kavina-demo.unsun.cc" },
       { text: "API", link: "/api/design" },
     ],
 
@@ -32,7 +31,6 @@ export default defineConfig({
           items: [
             { text: "部件开发", link: "/dev/widget-dev" },
             { text: "定义参考", link: "/dev/widget-definition" },
-            { text: "拓展包", link: "/dev/package" },
           ],
         },
         {
@@ -47,18 +45,25 @@ export default defineConfig({
         {
           text: "进阶",
           items: [
-            { text: "主题系统", link: "/dev/theme" },
-            { text: "表达式引擎", link: "/dev/expression" },
             { text: "插件开发", link: "/dev/plugins" },
             { text: "国际化", link: "/dev/i18n" },
+            { text: "主题系统", link: "/dev/theme" },
+            { text: "表达式引擎", link: "/dev/expression" },
           ],
         },
+        { text: "拓展包", link: "/dev/package" },
       ],
       "/api/": [
         { text: "Design", link: "/api/design" },
         { text: "Display", link: "/api/display" },
         { text: "Node 类型", link: "/api/node-types" },
         { text: "Hooks", link: "/api/hooks" },
+      ],
+      "/packages/": [
+        { text: "概览", link: "/packages" },
+        { text: "example", link: "/packages/example" },
+        { text: "vant", link: "/packages/vant" },
+        { text: "elementplus", link: "/packages/elementplus" },
       ],
     },
 

@@ -14,8 +14,8 @@ hero:
       text: 框架概述
       link: /guide/introduction
     - theme: alt
-      text: 在线体验
-      link: /demo
+      text: 演示
+      link: https://kavina-demo.unsun.cc
 
 features:
   - title: 可视化设计器
