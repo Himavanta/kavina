@@ -7,6 +7,7 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/favicon.svg" }]],
   sitemap: { hostname: "https://kavina.unsun.cc" },
   lastUpdated: true,
+  ignoreDeadLinks: true,
 
   themeConfig: {
     search: { provider: "local" },
@@ -31,6 +32,7 @@ export default defineConfig({
           items: [
             { text: "部件开发", link: "/dev/widget-dev" },
             { text: "定义参考", link: "/dev/widget-definition" },
+            { text: "拓展包", link: "/dev/package" },
           ],
         },
         {
