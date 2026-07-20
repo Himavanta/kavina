@@ -72,15 +72,26 @@ interface WidgetModule {
 }
 ```
 
-## PluginItem
+## PluginDef
+
+`definePlugin` 返回的类型，不含位置字段。
 
 ```ts
-interface PluginItem {
+interface PluginDef {
   title: string | ((lang: string) => string)
   icon: Component
-  primary?: boolean
-  second?: boolean
   component: Component
   window?: { width?: number; height?: number }
+}
+```
+
+## PluginItem
+
+组合位置后的完整插件类型。
+
+```ts
+interface PluginItem extends PluginDef {
+  primary?: boolean
+  second?: boolean
 }
 ```

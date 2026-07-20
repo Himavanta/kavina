@@ -27,7 +27,23 @@ const widgets = [myPackage.widgets]
 
 ## 插件
 
-拓展包可以包含插件。添加到 Design 的 `plugins` 属性：
+拓展包可以包含插件。使用 `definePlugin` 定义，添加位置后传入 Design：
+
+```ts
+import { definePlugin } from 'kavina'
+
+const myPlugin = definePlugin({
+  title: '我的面板',
+  icon: MyIcon,
+  component: MyPanel,
+})
+
+export default {
+  plugins: [{ ...myPlugin, primary: true }],
+}
+```
+
+使用者拆开填入 `plugins` 属性：
 
 ```ts
 import myPackage from 'my-package'
