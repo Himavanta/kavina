@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: 拓展
+  text: 拓展
   tagline: 官方部件包与社区资源
   actions:
     - theme: brand

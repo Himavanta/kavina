@@ -59,12 +59,6 @@ export default defineConfig({
         { text: "Node 类型", link: "/api/node-types" },
         { text: "Hooks", link: "/api/hooks" },
       ],
-      "/packages/": [
-        { text: "概览", link: "/packages" },
-        { text: "example", link: "/packages/example" },
-        { text: "vant", link: "/packages/vant" },
-        { text: "elementplus", link: "/packages/elementplus" },
-      ],
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/Himavanta/kavina" }],
