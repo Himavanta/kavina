@@ -32,7 +32,7 @@ schema() {
 调用 `useExecute` 获取绑定好上下文的执行器：
 
 ```ts
-import { useExecute } from 'kavina'
+import { useExecute } from 'kavina/hooks'
 
 const execute = useExecute()
 

@@ -30,7 +30,7 @@ const widgets = [myPackage.widgets]
 拓展包可以包含插件。使用 `definePlugin` 定义，添加位置后传入 Design：
 
 ```ts
-import { definePlugin } from 'kavina'
+import { definePlugin } from 'kavina/tools'
 
 const myPlugin = definePlugin({
   title: '我的面板',
@@ -60,7 +60,7 @@ const plugins = [...builtinPlugins, ...myPackage.plugins]
 部件和插件也可以脱离拓展包单独使用。拓展包不是必需的——直接提供一个部件定义函数或一个插件对象，同样可以正常工作。
 
 ```ts
-import { defineWidget } from 'kavina'
+import { defineWidget } from 'kavina/tools'
 
 const myWidget = defineWidget(() => ({
   name: 'hello',

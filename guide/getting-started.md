@@ -105,6 +105,25 @@ Design 和 Display 均支持通过 v-model 切换视觉样式：
 
 `dark` 为布尔值，`theme` 为 hex 颜色字符串（如 `"#4F46E5"`）。两种属性在 Design 和 Display 上完全一致。
 
+## 核心 API
+
+安装了 kavina 后，以下 API 可以直接使用：
+
+| 导入路径 | 说明 |
+| --- | --- |
+| `kavina/design` | Design 设计器组件 |
+| `kavina/display` | Display 渲染器组件 |
+| `kavina/packages/*` | 内置部件包（example、vant、elementplus） |
+| `kavina/hooks` | 上下文、部件注册、表达式执行等 hooks |
+| `kavina/tools` | defineWidget、definePlugin、defineI18n 等工具 |
+
+```ts
+import { Design } from 'kavina/design'
+import { Display } from 'kavina/display'
+import { useContext, useWidgets } from 'kavina/hooks'
+import { defineWidget, definePlugin, defineI18n } from 'kavina/tools'
+```
+
 ## 下一步
 
 - [部件开发](/dev/widget-dev) —— 编写自定义部件

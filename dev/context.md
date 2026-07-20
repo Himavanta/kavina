@@ -12,7 +12,7 @@ context 分为两层：
 `useContext()` 始终返回完整的 `AppContext`，无需判空。无论组件运行在设计器还是渲染器中，调用方可以安全访问所有字段。
 
 ```ts
-import { useContext } from 'kavina'
+import { useContext } from 'kavina/hooks'
 
 const context = useContext()
 ```
@@ -66,8 +66,8 @@ const formNodes = context.filter((n) => n.widget === 'input')
 
 ```vue
 <script setup lang="ts">
-import { useContext } from 'kavina'
-import type { Node } from 'kavina'
+import { useContext } from 'kavina/hooks'
+import type { Node } from 'kavina/tools'
 
 const props = defineProps<{ node: Node }>()
 const { dark, mode, lang } = useContext()

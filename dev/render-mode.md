@@ -83,7 +83,7 @@ export default defineWidget(() => ({
 
 ```vue
 <script setup lang="ts">
-import { useContext } from 'kavina'
+import { useContext } from 'kavina/hooks'
 
 const { mode } = useContext()
 </script>

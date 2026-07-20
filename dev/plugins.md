@@ -5,7 +5,7 @@
 ## definePlugin
 
 ```ts
-import { definePlugin } from 'kavina'
+import { definePlugin } from 'kavina/tools'
 
 export default definePlugin({
   title: '我的面板',
@@ -84,7 +84,7 @@ const plugins = [...defaultPlugins, { ...myPlugin, primary: true }]
 
 ```vue
 <script setup>
-import { useContext } from 'kavina'
+import { useContext } from 'kavina/hooks'
 
 const { views, active, store, query, filter } = useContext()
 </script>

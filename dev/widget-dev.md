@@ -7,7 +7,7 @@
 使用 `defineWidget` 定义部件。最小部件只需要 `name`、`design`、`setting` 和 `schema`：
 
 ```ts
-import { defineWidget } from 'kavina'
+import { defineWidget } from 'kavina/tools'
 
 export default defineWidget(() => ({
   name: 'button',
@@ -90,8 +90,8 @@ schema() {
 可以通过泛型为 schema 指定类型，获得类型提示：
 
 ```ts
-import { defineWidget } from 'kavina'
-import type { NodeSchema } from 'kavina'
+import { defineWidget } from 'kavina/tools'
+import type { NodeSchema } from 'kavina/tools'
 
 interface ButtonNode extends NodeSchema {
   text: string
