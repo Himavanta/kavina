@@ -4,6 +4,10 @@
 
 A Vue 3 low-code framework — visual designer and component renderer.
 
+## 文档 / Docs
+
+[kavina.unsun.cc](https://kavina.unsun.cc)
+
 ## 安装 / Install
 
 ```bash
@@ -40,7 +44,3 @@ import { Display } from 'kavina/display'
   <Display v-model:views="views" :widgets="widgets" />
 </template>
 ```
-
-## 文档 / Docs
-
-[kavina.unsun.cc](https://kavina.unsun.cc)
