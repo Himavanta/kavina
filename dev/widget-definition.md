@@ -7,7 +7,7 @@
 ```ts
 interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
   name: string
-  schema: (options: { lang: string }) => T
+  schema: (options: { lang: Ref<string> }) => T
   design?: () => Promise<Component>
   render?: () => Promise<Component>
   print?: () => Promise<Component>

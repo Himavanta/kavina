@@ -45,7 +45,7 @@ interface Slot {
 ```ts
 interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
   name: string
-  schema: (options: { lang: string }) => T
+  schema: (options: { lang: Ref<string> }) => T
   design?: () => Promise<Component>
   render?: () => Promise<Component>
   print?: () => Promise<Component>
@@ -62,7 +62,7 @@ interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
 ```ts
 interface WidgetModule {
   name: string
-  schema: (options: { lang: string }) => NodeSchema
+  schema: (options: { lang: Ref<string> }) => NodeSchema
   design?: Component
   render?: Component
   print?: Component
