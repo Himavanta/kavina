@@ -4,7 +4,32 @@ export default defineConfig({
   title: "kavina",
   description: "Vue 3 低代码框架 — 可视化设计器与组件化渲染引擎",
   lang: "zh-CN",
-  head: [["link", { rel: "icon", href: "/favicon.svg" }]],
+  head: [
+    ["link", { rel: "icon", href: "/favicon.svg" }],
+    ["meta", { name: "theme-color", content: "#FA743E" }],
+    ["meta", { name: "keywords", content: "低代码,可视化设计器,Vue 3,组件渲染引擎,前端框架" }],
+    [
+      "meta",
+      {
+        name: "description",
+        content:
+          "kavina 是一个 Vue 3 低代码框架，提供可视化设计器与组件化渲染引擎，帮助开发者快速构建可配置的页面与应用。",
+      },
+    ],
+    ["meta", { property: "og:title", content: "kavina — Vue 3 低代码框架" }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content:
+          "可视化设计器与组件化渲染引擎，基于 Vue 3 + Composition API，支持拖拽式界面构建与 JSON 驱动渲染。",
+      },
+    ],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:url", content: "https://kavina.unsun.cc" }],
+    ["meta", { property: "og:image", content: "https://kavina.unsun.cc/favicon.svg" }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+  ],
   sitemap: { hostname: "https://kavina.unsun.cc" },
   ignoreDeadLinks: true,
 
@@ -56,7 +81,7 @@ export default defineConfig({
       "/api/": [
         { text: "Design", link: "/api/design" },
         { text: "Display", link: "/api/display" },
-        { text: "Node 类型", link: "/api/node-types" },
+        { text: "Tools", link: "/api/tools" },
         { text: "Hooks", link: "/api/hooks" },
       ],
     },

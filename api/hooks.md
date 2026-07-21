@@ -23,14 +23,6 @@ interface Widgets {
 }
 ```
 
-## useRenderLayer
-
-获取渲染层索引数据。用于表达式执行时获取同级节点的索引位置。
-
-```ts
-function useRenderLayer(): RenderLayerState
-```
-
 ## useExecute
 
 获取绑定上下文的表达式执行器。
@@ -64,20 +56,4 @@ interface RestoreState {
   enableRestoreMode: boolean
   originalDataSet: WeakSet<object>
 }
-```
-
-## useDragsConfig
-
-获取 VueDraggable 的拖拽配置。
-
-```ts
-function useDragsConfig(): DragsConfig
-```
-
-## useScrollIntoView
-
-选中节点时自动滚动到可见区域。
-
-```ts
-function useScrollIntoView(watchSource: Ref<symbol | null>): void
 ```
