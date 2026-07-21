@@ -4,29 +4,31 @@
 
 ## Props
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| `widgets` | `WidgetLoader[]` | `[]` | 部件定义函数数组，支持任意嵌套 |
-| `plugins` | `PluginItem[]` | 内置插件 | 设计器面板插件 |
+| 属性      | 类型             | 默认值   | 说明                           |
+| --------- | ---------------- | -------- | ------------------------------ |
+| `widgets` | `WidgetLoader[]` | `[]`     | 部件定义函数数组，支持任意嵌套 |
+| `plugins` | `PluginItem[]`   | 内置插件 | 设计器面板插件                 |
 
 ## v-model
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| `views` | `Node[]` | `[]` | 当前画布的节点数组 |
-| `dark` | `boolean` | `false` | 暗色模式 |
-| `theme` | `string` | — | 主题色 hex |
-| `lang` | `string` | `'zh'` | 语言 |
+| 属性    | 类型      | 默认值  | 说明               |
+| ------- | --------- | ------- | ------------------ |
+| `views` | `Node[]`  | `[]`    | 当前画布的节点数组 |
+| `dark`  | `boolean` | `false` | 暗色模式           |
+| `theme` | `string`  | —       | 主题色 hex         |
+| `lang`  | `string`  | `'zh'`  | 语言               |
 
 ## 用法
 
 ```vue
 <script setup>
-import { Design } from 'kavina/design'
-import { ref } from 'vue'
+import { Design } from "kavina/design";
+import { ref } from "vue";
 
-const views = ref([])
-const widgets = [/* ... */]
+const views = ref([]);
+const widgets = [
+  /* ... */
+];
 </script>
 
 <template>

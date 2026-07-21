@@ -4,17 +4,17 @@
 
 ## 部件列表
 
-| 部件 | 说明 |
-| --- | --- |
-| `vant-button` | 按钮 |
-| `vant-popup` | 弹出层 |
+| 部件          | 说明   |
+| ------------- | ------ |
+| `vant-button` | 按钮   |
+| `vant-popup`  | 弹出层 |
 
 ## 使用
 
 ```ts
-import { vant } from 'kavina/packages/vant'
+import { vant } from "kavina/packages/vant";
 
-const widgets = [vant]
+const widgets = Object.values(vant);
 ```
 
 ## 前置

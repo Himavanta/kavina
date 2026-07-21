@@ -4,17 +4,17 @@
 
 ## 部件列表
 
-| 部件 | 说明 |
-| --- | --- |
-| `el-form` | 表单容器 |
-| `el-form-item` | 表单项 |
+| 部件           | 说明     |
+| -------------- | -------- |
+| `el-form`      | 表单容器 |
+| `el-form-item` | 表单项   |
 
 ## 使用
 
 ```ts
-import { elementplus } from 'kavina/packages/elementplus'
+import { elementplus } from "kavina/packages/elementplus";
 
-const widgets = [elementplus]
+const widgets = Object.values(elementplus);
 ```
 
 ## 前置

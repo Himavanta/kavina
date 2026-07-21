@@ -42,8 +42,12 @@ keyEach / register
 
 ```css
 color: red;
-&:hover { color: blue; }
-& > .child { font-size: 14px; }
+&:hover {
+  color: blue;
+}
+& > .child {
+  font-size: 14px;
+}
 ```
 
 这使得低代码配置中可以用一个字符串描述完整的样式规则，包括伪类和子元素。
@@ -95,9 +99,9 @@ schema() {
 
 ```ts
 interface Slot {
-  name: string       // 槽位名称，对应 <template #name>
-  title?: string     // 可选标题
-  children: Node[]   // 子节点列表
+  name: string; // 槽位名称，对应 <template #name>
+  title?: string; // 可选标题
+  children: Node[]; // 子节点列表
 }
 ```
 

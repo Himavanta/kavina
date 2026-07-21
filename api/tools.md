@@ -10,14 +10,14 @@
 
 ```ts
 interface NodeSchema {
-  widget: string           // widget 名称，必填
-  key?: string             // 节点标识符，可选
-  model?: string           // 数据模型键名，可选
-  slots?: Slot[]           // 嵌套槽位
-  style?: string           // 内联 CSS 样式
-  valueExpr?: string       // 默认值表达式
-  restore?: boolean        // 恢复模式标记
-  [key: string]: unknown   // 扩展字段
+  widget: string; // widget 名称，必填
+  key?: string; // 节点标识符，可选
+  model?: string; // 数据模型键名，可选
+  slots?: Slot[]; // 嵌套槽位
+  style?: string; // 内联 CSS 样式
+  valueExpr?: string; // 默认值表达式
+  restore?: boolean; // 恢复模式标记
+  [key: string]: unknown; // 扩展字段
 }
 ```
 
@@ -27,10 +27,10 @@ interface NodeSchema {
 
 ```ts
 interface Node extends NodeSchema {
-  [KEY]: symbol            // 框架内部唯一标识
-  key: string              // 节点标识符，始终有值
-  model: string            // 数据模型键名，始终有值
-  [REF]?: unknown          // 组件实例引用
+  [KEY]: symbol; // 框架内部唯一标识
+  key: string; // 节点标识符，始终有值
+  model: string; // 数据模型键名，始终有值
+  [REF]?: unknown; // 组件实例引用
 }
 ```
 
@@ -40,9 +40,9 @@ interface Node extends NodeSchema {
 
 ```ts
 interface Slot {
-  name: string             // 槽位名称，对应 <template #name>
-  title?: string           // 可选标题
-  children: Node[]         // 子节点列表
+  name: string; // 槽位名称，对应 <template #name>
+  title?: string; // 可选标题
+  children: Node[]; // 子节点列表
 }
 ```
 
@@ -52,14 +52,14 @@ interface Slot {
 
 ```ts
 interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
-  name: string
-  schema: (options: { lang: Ref<string> }) => T
-  design?: () => Promise<Component>
-  render?: () => Promise<Component>
-  print?: () => Promise<Component>
-  setting?: () => Promise<Component>
-  thumb?: () => Promise<Component>
-  doc?: () => Promise<Component>
+  name: string;
+  schema: (options: { lang: Ref<string> }) => T;
+  design?: () => Promise<Component>;
+  render?: () => Promise<Component>;
+  print?: () => Promise<Component>;
+  setting?: () => Promise<Component>;
+  thumb?: () => Promise<Component>;
+  doc?: () => Promise<Component>;
 }
 ```
 
@@ -69,14 +69,14 @@ interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
 
 ```ts
 interface WidgetModule {
-  name: string
-  schema: (options: { lang: Ref<string> }) => NodeSchema
-  design?: Component
-  render?: Component
-  print?: Component
-  setting?: Component
-  thumb?: Component
-  doc?: Component
+  name: string;
+  schema: (options: { lang: Ref<string> }) => NodeSchema;
+  design?: Component;
+  render?: Component;
+  print?: Component;
+  setting?: Component;
+  thumb?: Component;
+  doc?: Component;
 }
 ```
 
@@ -86,10 +86,10 @@ interface WidgetModule {
 
 ```ts
 interface PluginDef {
-  title: string | ((lang: string) => string)
-  icon: Component
-  component: Component
-  window?: { width?: number; height?: number }
+  title: string | ((lang: string) => string);
+  icon: Component;
+  component: Component;
+  window?: { width?: number; height?: number };
 }
 ```
 
@@ -99,8 +99,8 @@ interface PluginDef {
 
 ```ts
 interface PluginItem extends PluginDef {
-  primary?: boolean     // 显示在主要区域
-  second?: boolean      // 显示在次要区域
+  primary?: boolean; // 显示在主要区域
+  second?: boolean; // 显示在次要区域
 }
 ```
 
@@ -109,7 +109,7 @@ interface PluginItem extends PluginDef {
 ### KEY
 
 ```ts
-const KEY: unique symbol
+const KEY: unique symbol;
 ```
 
 框架内部唯一标识的 Symbol 键，存储在 `Node[KEY]`。
@@ -117,7 +117,7 @@ const KEY: unique symbol
 ### REF
 
 ```ts
-const REF: unique symbol
+const REF: unique symbol;
 ```
 
 组件实例引用的 Symbol 键，存储在 `Node[REF]`。
@@ -128,23 +128,23 @@ const REF: unique symbol
 
 ```ts
 function defineWidget<T extends NodeSchema = NodeSchema>(
-  definition: WidgetDefinition<T>
-): WidgetLoader<T>
+  definition: WidgetDefinition<T>,
+): WidgetLoader<T>;
 ```
 
 返回的 `WidgetLoader` 可直接传入 Design / Display 的 `widgets` 属性。
 
 ```ts
-import { defineWidget } from 'kavina/tools'
+import { defineWidget } from "kavina/tools";
 
 const myWidget = defineWidget({
-  name: 'hello',
+  name: "hello",
   schema({ lang }) {
-    return { widget: this.name, text: 'Hello' }
+    return { widget: this.name, text: "Hello" };
   },
-  design: () => import('./design.vue'),
-  setting: () => import('./setting.vue'),
-})
+  design: () => import("./design.vue"),
+  setting: () => import("./setting.vue"),
+});
 ```
 
 ## definePlugin
@@ -152,17 +152,17 @@ const myWidget = defineWidget({
 插件定义函数。参数即返回值，提供类型推导。
 
 ```ts
-function definePlugin(plugin: PluginDef): PluginDef
+function definePlugin(plugin: PluginDef): PluginDef;
 ```
 
 ```ts
-import { definePlugin } from 'kavina/tools'
+import { definePlugin } from "kavina/tools";
 
 const myPlugin = definePlugin({
-  title: '我的面板',
+  title: "我的面板",
   icon: MyIcon,
   component: MyPanel,
-})
+});
 ```
 
 使用时需设置位置：
@@ -171,7 +171,7 @@ const myPlugin = definePlugin({
 const plugins = [
   { ...myPlugin, primary: true },
   { ...otherPlugin, second: true },
-]
+];
 ```
 
 ## defineI18n
@@ -180,8 +180,8 @@ const plugins = [
 
 ```ts
 function defineI18n(
-  func: () => [Record<string, number>, Record<string, string[]>]
-): (this: string | Ref<string>, key: string, lang?: string | Ref<string>) => string
+  func: () => [Record<string, number>, Record<string, string[]>],
+): (this: string | Ref<string>, key: string, lang?: string | Ref<string>) => string;
 ```
 
 - 第一个返回元素 `Record<string, number>` 映射语言标识符到索引
@@ -192,12 +192,12 @@ function defineI18n(
 ```ts
 const t = defineI18n(() => [
   { zh: 0, en: 1 },
-  { hello: ['你好', 'Hello'], world: ['世界', 'World'] },
-])
+  { hello: ["你好", "Hello"], world: ["世界", "World"] },
+]);
 
 // 组件中通过 ctx.lang 绑定
-const l = t.bind(lang)
-l('hello')  // '你好' 或 'Hello'
+const l = t.bind(lang);
+l("hello"); // '你好' 或 'Hello'
 ```
 
 ## exchange
@@ -205,10 +205,10 @@ l('hello')  // '你好' 或 'Hello'
 根据当前语言解析字符串或函数。
 
 ```ts
-function exchange(text: string | ((lang: string) => string), lang: string): string
+function exchange(text: string | ((lang: string) => string), lang: string): string;
 ```
 
 ```ts
-exchange('Hello', 'zh')                        // 'Hello'
-exchange((l) => l === 'zh' ? '你好' : 'Hello', 'zh')  // '你好'
+exchange("Hello", "zh"); // 'Hello'
+exchange((l) => (l === "zh" ? "你好" : "Hello"), "zh"); // '你好'
 ```

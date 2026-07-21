@@ -12,51 +12,51 @@ context 分为两层：
 `useContext()` 始终返回完整的 `AppContext`，无需判空。无论组件运行在设计器还是渲染器中，调用方可以安全访问所有字段。
 
 ```ts
-import { useContext } from 'kavina/hooks'
+import { useContext } from "kavina/hooks";
 
-const context = useContext()
+const context = useContext();
 ```
 
 ## CommonState
 
 所有模式下可用：
 
-| 字段 | 类型 | 说明 |
-| --- | --- | --- |
-| `scope` | `string` | CSS 作用域 class 和 VueDraggable group name |
-| `dark` | `Ref<boolean>` | 暗色模式 |
-| `mode` | `'design' \| 'display' \| 'print'` | 当前渲染模式 |
-| `lang` | `Ref<string>` | 当前语言，如 `'zh'` |
-| `model` | `Ref<Record<string, unknown>>` | 数据源对象 |
-| `views` | `Ref<Node[]>` | 当前层级的节点数组 |
+| 字段    | 类型                               | 说明                                        |
+| ------- | ---------------------------------- | ------------------------------------------- |
+| `scope` | `string`                           | CSS 作用域 class 和 VueDraggable group name |
+| `dark`  | `Ref<boolean>`                     | 暗色模式                                    |
+| `mode`  | `'design' \| 'display' \| 'print'` | 当前渲染模式                                |
+| `lang`  | `Ref<string>`                      | 当前语言，如 `'zh'`                         |
+| `model` | `Ref<Record<string, unknown>>`     | 数据源对象                                  |
+| `views` | `Ref<Node[]>`                      | 当前层级的节点数组                          |
 
 ### store 与节点管理
 
 `store` 是一个 `Map<symbol, Node>`，维护当前 scope 下所有已注册的节点。开发者通常不需要直接操作 store，而是使用以下方法：
 
-| 方法 | 说明 |
-| --- | --- |
-| `register(node)` | 注册节点到 store，自动分配 `[KEY]` |
-| `deregister(node)` | 从 store 中移除节点 |
-| `query(key)` | 按 `key` 字符串查找节点 |
-| `filter(fn)` | 按条件筛选节点，返回 `Node[]` |
+| 方法               | 说明                               |
+| ------------------ | ---------------------------------- |
+| `register(node)`   | 注册节点到 store，自动分配 `[KEY]` |
+| `deregister(node)` | 从 store 中移除节点                |
+| `query(key)`       | 按 `key` 字符串查找节点            |
+| `filter(fn)`       | 按条件筛选节点，返回 `Node[]`      |
 
 ```ts
-const node = context.query('header-title')
-const formNodes = context.filter((n) => n.widget === 'input')
+const node = context.query("header-title");
+const formNodes = context.filter((n) => n.widget === "input");
 ```
 
 ## DesignState
 
 仅 Design 模式下可用。Display 模式调用时返回无害默认值：
 
-| 字段 | 类型 | 说明 |
-| --- | --- | --- |
-| `active` | `Ref<Node \| null>` | 当前选中的节点 |
+| 字段                 | 类型                      | 说明                         |
+| -------------------- | ------------------------- | ---------------------------- |
+| `active`             | `Ref<Node \| null>`       | 当前选中的节点               |
 | `loadSchema(schema)` | `(nodes: Node[]) => void` | 导入节点数组，替换当前 views |
-| `clear()` | `() => void` | 清空所有节点并销毁 store |
-| `destroy()` | `() => void` | 销毁设计器实例 |
-| `plugins` | `PluginItem[]` | 当前注册的插件列表 |
+| `clear()`            | `() => void`              | 清空所有节点并销毁 store     |
+| `destroy()`          | `() => void`              | 销毁设计器实例               |
+| `plugins`            | `PluginItem[]`            | 当前注册的插件列表           |
 
 ## 在部件中使用
 
@@ -66,11 +66,11 @@ const formNodes = context.filter((n) => n.widget === 'input')
 
 ```vue
 <script setup lang="ts">
-import { useContext } from 'kavina/hooks'
-import type { Node } from 'kavina/tools'
+import { useContext } from "kavina/hooks";
+import type { Node } from "kavina/tools";
 
-const props = defineProps<{ node: Node }>()
-const { dark, mode, lang } = useContext()
+const props = defineProps<{ node: Node }>();
+const { dark, mode, lang } = useContext();
 </script>
 ```
 
@@ -79,13 +79,13 @@ const { dark, mode, lang } = useContext()
 通过 `query` 和 `filter` 查找其他已注册节点：
 
 ```ts
-const { query, filter } = useContext()
+const { query, filter } = useContext();
 
 // 查找特定 key 的节点
-const target = query('sidebar')
+const target = query("sidebar");
 
 // 筛选所有 form 部件
-const forms = filter((n) => n.widget === 'form')
+const forms = filter((n) => n.widget === "form");
 ```
 
 ### 访问数据源
@@ -93,13 +93,13 @@ const forms = filter((n) => n.widget === 'form')
 读取或修改 Display 的 `model` 绑定值：
 
 ```ts
-const { model } = useContext()
+const { model } = useContext();
 
 // 读取
-console.log(model.value[props.node.model])
+console.log(model.value[props.node.model]);
 
 // 修改
-model.value[props.node.model] = 'new value'
+model.value[props.node.model] = "new value";
 ```
 
 ## 注意事项

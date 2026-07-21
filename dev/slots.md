@@ -122,11 +122,11 @@ schema() {
 动态槽位中，槽位的 `name` 需要保持稳定。`keysCans` 是为此设计的键名生成工具：
 
 ```ts
-const [make] = keysCans((v) => `Tab-${v}`)
+const [make] = keysCans((v) => `Tab-${v}`);
 
-make('tab1')  // 首次调用，生成并缓存 'iTab-a1b2c3'
-make('tab2')  // 生成并缓存 'iTab-d4e5f6'
-make('tab1')  // 再次调用，命中缓存，返回 'iTab-a1b2c3'
+make("tab1"); // 首次调用，生成并缓存 'iTab-a1b2c3'
+make("tab2"); // 生成并缓存 'iTab-d4e5f6'
+make("tab1"); // 再次调用，命中缓存，返回 'iTab-a1b2c3'
 ```
 
 它维护一个内部 `Map`，通过 get-or-create 模式工作：同一个 key 无论调用多少次，始终返回同一个值。这保证了动态增删槽位时，已存在的槽位名称不会漂移。

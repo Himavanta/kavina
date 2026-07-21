@@ -18,9 +18,9 @@
 拓展包可以包含部件。添加到 Design 或 Display 的 `widgets` 属性即可使用：
 
 ```ts
-import myPackage from 'my-package'
+import myPackage from "my-package";
 
-const widgets = [myPackage.widgets]
+const widgets = [myPackage.widgets];
 ```
 
 `widgets` 属性接收一个数组，内部通过 `flat(Infinity)` 拉平所有层级。无论拓展包内部如何组织部件，最终只需将部件定义函数传入即可。
@@ -30,25 +30,25 @@ const widgets = [myPackage.widgets]
 拓展包可以包含插件。使用 `definePlugin` 定义，添加位置后传入 Design：
 
 ```ts
-import { definePlugin } from 'kavina/tools'
+import { definePlugin } from "kavina/tools";
 
 const myPlugin = definePlugin({
-  title: '我的面板',
+  title: "我的面板",
   icon: MyIcon,
   component: MyPanel,
-})
+});
 
 export default {
   plugins: [{ ...myPlugin, primary: true }],
-}
+};
 ```
 
 使用者拆开填入 `plugins` 属性：
 
 ```ts
-import myPackage from 'my-package'
+import myPackage from "my-package";
 
-const plugins = [...builtinPlugins, ...myPackage.plugins]
+const plugins = [...builtinPlugins, ...myPackage.plugins];
 ```
 
 ## 其他资源
@@ -60,14 +60,16 @@ const plugins = [...builtinPlugins, ...myPackage.plugins]
 部件和插件也可以脱离拓展包单独使用。拓展包不是必需的——直接提供一个部件定义函数或一个插件对象，同样可以正常工作。
 
 ```ts
-import { defineWidget } from 'kavina/tools'
+import { defineWidget } from "kavina/tools";
 
 const myWidget = defineWidget(() => ({
-  name: 'hello',
-  design: () => import('./design.vue'),
-  setting: () => import('./setting.vue'),
-  schema() { return { widget: this.name, text: 'Hello' } },
-}))
+  name: "hello",
+  design: () => import("./design.vue"),
+  setting: () => import("./setting.vue"),
+  schema() {
+    return { widget: this.name, text: "Hello" };
+  },
+}));
 
 // <Design :widgets="[myWidget]" ... />
 ```

@@ -32,13 +32,13 @@ schema() {
 调用 `useExecute` 获取绑定好上下文的执行器：
 
 ```ts
-import { useExecute } from 'kavina/hooks'
+import { useExecute } from "kavina/hooks";
 
-const execute = useExecute()
+const execute = useExecute();
 
 // 执行节点上的 valueExpr
-const fn = execute(props.node.valueExpr || '')
-const value = fn?.()
+const fn = execute(props.node.valueExpr || "");
+const value = fn?.();
 ```
 
 执行器返回一个函数，调用后得到表达式结果。

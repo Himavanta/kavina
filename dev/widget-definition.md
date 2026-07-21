@@ -6,14 +6,14 @@
 
 ```ts
 interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
-  name: string
-  schema: (options: { lang: Ref<string> }) => T
-  design?: () => Promise<Component>
-  render?: () => Promise<Component>
-  print?: () => Promise<Component>
-  setting?: () => Promise<Component>
-  thumb?: () => Promise<Component>
-  doc?: () => Promise<Component>
+  name: string;
+  schema: (options: { lang: Ref<string> }) => T;
+  design?: () => Promise<Component>;
+  render?: () => Promise<Component>;
+  print?: () => Promise<Component>;
+  setting?: () => Promise<Component>;
+  thumb?: () => Promise<Component>;
+  doc?: () => Promise<Component>;
 }
 ```
 
@@ -22,7 +22,7 @@ interface WidgetDefinition<T extends NodeSchema = NodeSchema> {
 部件类型标识。字符串，全局唯一。schema 中的 `widget` 字段通过 `this.name` 绑定到该值。
 
 ```ts
-name: 'button'
+name: "button";
 ```
 
 ## schema
@@ -70,11 +70,11 @@ schema({ lang }) {
 
 框架根据当前模式自动选择组件，规则如下：
 
-| 模式 | 解析顺序 |
-| --- | --- |
-| `"design"` | `design` |
-| `"display"` | `render` → `design` |
-| `"print"` | `print` → `render` → `design` |
+| 模式        | 解析顺序                      |
+| ----------- | ----------------------------- |
+| `"design"`  | `design`                      |
+| `"display"` | `render` → `design`           |
+| `"print"`   | `print` → `render` → `design` |
 
 ## defineWidget
 
@@ -82,8 +82,8 @@ schema({ lang }) {
 
 ```ts
 function defineWidget<T extends NodeSchema = NodeSchema>(
-  loader: () => WidgetDefinition<T>
-): () => WidgetDefinition<T>
+  loader: () => WidgetDefinition<T>,
+): () => WidgetDefinition<T>;
 ```
 
 实际运行时直接返回传入的函数，不做任何转换。它的作用是在 TypeScript 中通过泛型 `T` 约束 schema 的返回类型。

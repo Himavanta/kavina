@@ -20,12 +20,12 @@ npm install kavina
 
 ```vue
 <script setup>
-import { Design } from 'kavina/design'
-import { example } from 'kavina/packages/example'
-import { ref } from 'vue'
+import { Design } from "kavina/design";
+import { example } from "kavina/packages/example";
+import { ref } from "vue";
 
-const views = ref([])
-const widgets = [example]
+const views = ref([]);
+const widgets = [example];
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const widgets = [example]
 
 ```vue
 <script setup>
-import { Display } from 'kavina/display'
+import { Display } from "kavina/display";
 </script>
 
 <template>

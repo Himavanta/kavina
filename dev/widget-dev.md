@@ -7,34 +7,34 @@
 使用 `defineWidget` 定义部件。最小部件只需要 `name`、`design`、`setting` 和 `schema`：
 
 ```ts
-import { defineWidget } from 'kavina/tools'
+import { defineWidget } from "kavina/tools";
 
 export default defineWidget(() => ({
-  name: 'button',
+  name: "button",
 
   // 设计器中的编辑态组件
-  design: () => import('./design.vue'),
+  design: () => import("./design.vue"),
 
   // 属性配置面板
-  setting: () => import('./setting.vue'),
+  setting: () => import("./setting.vue"),
 
   // 默认数据
   schema() {
     return {
       widget: this.name,
-      text: '按钮',
-      type: 'primary',
-    }
+      text: "按钮",
+      type: "primary",
+    };
   },
-}))
+}));
 ```
 
 注册到 Design 和 Display：
 
 ```ts
-import button from './button/index.ts'
+import button from "./button/index.ts";
 
-const widgets = [button]
+const widgets = [button];
 
 // <Design :widgets="widgets" ... />
 // <Display :widgets="widgets" ... />
@@ -90,28 +90,28 @@ schema() {
 可以通过泛型为 schema 指定类型，获得类型提示：
 
 ```ts
-import { defineWidget } from 'kavina/tools'
-import type { NodeSchema } from 'kavina/tools'
+import { defineWidget } from "kavina/tools";
+import type { NodeSchema } from "kavina/tools";
 
 interface ButtonNode extends NodeSchema {
-  text: string
-  type: 'primary' | 'default'
-  disabled: boolean
+  text: string;
+  type: "primary" | "default";
+  disabled: boolean;
 }
 
 export default defineWidget<ButtonNode>(() => ({
-  name: 'button',
-  design: () => import('./design.vue'),
-  setting: () => import('./setting.vue'),
+  name: "button",
+  design: () => import("./design.vue"),
+  setting: () => import("./setting.vue"),
   schema() {
     return {
       widget: this.name,
-      text: '按钮',
-      type: 'primary',
+      text: "按钮",
+      type: "primary",
       disabled: false,
-    }
+    };
   },
-}))
+}));
 ```
 
 `NodeSchema` 是基础节点类型，只要求 `widget: string`。在 `defineWidget<T>` 的泛型中，`T` 需继承 `NodeSchema`。
