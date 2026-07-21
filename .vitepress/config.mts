@@ -41,7 +41,7 @@ export default defineConfig({
       { text: "指南", link: "/guide/introduction" },
       { text: "开发", link: "/dev/widget-dev" },
       { text: "拓展", link: "/packages" },
-      { text: "演示", link: "https://kavina-demo.unsun.cc" },
+      { text: "演示", link: "https://kavina-demo.unsun.cc", target: "_blank" },
       { text: "API", link: "/api/design" },
     ],
 
