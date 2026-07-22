@@ -15,7 +15,7 @@ hero:
       link: /guide/introduction
     - theme: alt
       text: 演示
-      link: https://kavina-demo.unsun.cc
+      link: https://kavina-demo.unsun.cc/pocket
 
 features:
   - title: 可视化设计器
