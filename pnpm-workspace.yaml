@@ -1,2 +1,5 @@
 allowBuilds:
   "@parcel/watcher": true
+  vue-demi: true
+minimumReleaseAgeExclude:
+  - kavina@0.0.6
