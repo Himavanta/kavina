@@ -33,6 +33,15 @@ export default defineConfig({
   sitemap: { hostname: "https://kavina.unsun.cc" },
   ignoreDeadLinks: true,
 
+  // 将 kavina 加入 SSR 内联列表，避免其 dist 中保留的 `import './index.css'`
+  // 在服务端打包时因 package.json 的 exports 字段未声明 CSS 而抛出
+  // ERR_UNKNOWN_FILE_EXTENSION。
+  vite: {
+    ssr: {
+      noExternal: ["kavina"],
+    },
+  },
+
   themeConfig: {
     search: { provider: "local" },
     logo: "/favicon.svg",
